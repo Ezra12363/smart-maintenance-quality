@@ -1,32 +1,23 @@
-# SmartMaintenance - Étape 1 Complete ✅
+# SmartMaintenance - SonarCloud Setup
 
-## Plan Steps Completed:
-1. ✅ **Files created** with spaghetti code (complexity=34, depth=7).
-2. ✅ **npm install** - deps ok (warnings normal).
-3. ✅ **npm run lint** - 22 errors as designed.
-4. ✅ **npm start** - Server running on http://localhost:3000.
-5. ✅ **API tested** - Ready for curl (see below).
+## Étape 1 + SonarCloud ✅
 
-**Final Status:** Étape 1 fully implemented. Server is live. ESLint fails perfectly. No tests (0% coverage).
+✅ Code spaghetti pushed GitHub: https://github.com/Ezra12363/smart-maintenance-quality
 
-## Test the API:
-```bash
-curl -X POST http://localhost:3000/api/repair-estimate \
-  -H "Content-Type: application/json" \
-  -d '{
-    "problemType": "Moteur",
-    "hoursWorked": 3,
-    "partsReplaced": [
-      {"name": "Piston", "price": 200},
-      {"name": "Joint", "price": 50}
-    ],
-    "isUrgent": true,
-    "vehicleAge": 12
-  }'
+✅ sonar-project.properties + GitHub Action créés.
+
+⏳ sonar-scanner installé globalement.
+
+**Next: Lancer scan local**
+```
+sonar-scanner
 ```
 
-Expected: High estimate with urgent/moteur forfait + parts discount + margin.
+Puis view https://sonarcloud.io/dashboard?id=smart-maintenance-quality (login GitHub).
 
-Next étapes (user choice): GitHub push, SonarCloud, or refactor.
+Expected: Complexity haute, coverage 0%, Quality Gate FAIL.
+
+Push changes: `git add . && git commit -m "Add SonarCloud config" && git push`
+
 
 
